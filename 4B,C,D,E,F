@@ -1,0 +1,193 @@
+B) Pass data between components using props
+Code:-
+APP.jsx:-
+import Header from "./components/Header";
+import HotelCard from "./components/HotelCard";
+import Footer from "./components/Footer";
+function App() {
+  return (
+    <div>
+      <Header /
+      <HotelCard
+        restaurant="Domino's Pizza"
+        food="Farmhouse Pizza"
+        price={100}
+        discount={50}
+        rating={4.5}
+      />
+      <Footer />
+    </div>
+  );
+}
+export default App;
+HotelCard.jsx:-
+function HotelCard(props) {
+    const discountAmount = (props.price * props.discount) / 100;
+    const finalPrice = props.price - discountAmount;
+  
+    return (
+      <div>
+        <h2>{props.restaurant}</h2>
+        <p>Food Item: {props.food}</p>
+        <p>Original Price: ₹{props.price}</p>
+        <p>Discount: {props.discount}%</p>
+        <p>Discount Amount: ₹{discountAmount}</p>
+        <p>Final Price: ₹{finalPrice}</p>
+        <p>Rating: ⭐ {props.rating}</p>
+        <hr />
+      </div>
+    );
+  }
+ 
+  export default HotelCard;
+Header.jsx:-
+function Header() {
+    return (
+      <div>
+        <h1>Online Food Delivery Dashboard</h1>
+        <hr />
+      </div>
+    );
+  }
+ 
+  export default Header;
+Footrt.jsx:-
+function Footer() {
+    return (
+      <div>
+        <hr />
+        <p>© 2026 Food Delivery App</p>
+        <h3>Nidhi Yadav T053</h3>oo
+      </div>
+    );
+  }
+  export default Footer;
+C) Use the useState hook to manage and update data.
+Code:-
+App.jsx:-
+import { useState} from "react";
+function App(){
+  const [count,setCount] = useState(0);
+  return(
+    <div>
+      <h1> Button Click Counter</h1>
+      <hr/>
+      <h2> User clicks: {count} Times</h2>
+      <button onClick={() => setCount(count + 1)}> click Me </button>
+      <h4> Nidhi Yadav T053"</h4>
+    </div>
+  );
+}
+export default App;
+D) Create a form component to accept user input and display it
+dynamically.
+Code:-
+App.jsx:-
+import "./App.css";
+
+import StudentForm from "./Components/StudentForm";
+
+function App() {
+
+  return (
+
+    <div className="container">
+
+      <StudentForm />
+
+    </div>
+
+  );
+
+}
+export default App;
+StudentForm.jsx:-
+import { useState } from "react";
+function StudentForm() {
+  const [name, setName] = useState("");
+  const [rollNo, setRollNo] = useState("");
+  const [branch, setBranch] = useState("");
+  const [cgpa, setCgpa] = useState("");
+
+  return (
+    <div>
+      <h1>Student Registration Form</h1>
+      <label>Student Name : </label>
+      <input
+        type="text
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      /
+      <br />
+      <br />
+      <label>Roll Number : </label>
+      <input
+        type="number"
+        value={rollNo}
+        onChange={(e) => setRollNo(e.target.value)}
+      />
+      <br />
+      <br />
+      <label>Branch : </label>
+      <input
+        type="text"
+        value={branch}
+        onChange={(e) => setBranch(e.target.value)}
+      />
+      <br />
+
+      <br />
+
+      <label>CGPA : </label>
+      <input
+        type="number"
+        value={cgpa}
+        onChange={(e) => setCgpa(e.target.value)}
+      />
+      <br />
+      <br />
+      <hr />
+     <h2>Student Details</h2>
+      <p>Name : {name}</p>
+      <p>Roll Number : {rollNo}</p>
+      <p>Branch : {branch}</p>
+      <p>CGPA : {cgpa}</p>
+    </div>
+  );
+}
+export default StudentForm;
+F)Build a small interactive component (e.g., counter or to-do list).
+Code:-
+App.jsx:-
+import { useState } from "react";
+function App() {
+  // State Variable
+ const [count, setCount] = useState(0);
+  // Function to decrease count
+  const handleDecrease = () => 
+    if (count > 0) {
+      setCount(count - 1)
+    } else 
+      setCount(0);
+    }
+  };
+  return (
+    <div>
+      <h1>Button Click Counter</h1>
+      <hr />
+      <h2>Nidhi Clicks: {count} Times</h2>
+      <button onClick={() => setCount(count + 1)}>
+        Increase
+      </button>
+      &nbsp;&nbsp;
+      <button onClick={handleDecrease}>
+        Decrease
+      </button>
+     &nbsp;&nbsp;
+      <button onClick={() => setCount(0)}>
+        Reset
+      </button>
+    </div>
+  );
+}
+export default App;
